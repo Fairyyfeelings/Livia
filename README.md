@@ -1,22 +1,12 @@
-# Livia Bot — Marble Isles RPG (discord.py)
+# Livia Bot (Postgres)
 
-TTRPG assistant bot for Marble Isles. Tracks characters, core attributes, skills, inventory & wallet. Rolls are `d20 + skill + stat` with ⭐ Total.
+Render (Web Service - Free) + Neon/Supabase Postgres.
 
-## Commands
-- `/create name:<text> primary:<Mind|Body|Soul> secondary:<...> origin:<Noble|Citizen|Country|Streetrat> [streetrat_weapon:<pistol|dagger>]`
-- `/sheet`
-- `/skill_add skill:<name> amount:<n>`
-- `/roll skill:<name>`
-- `/damage kind:<Sanity|Health|Spirit> amount:<n>` / `/heal ...`
-- `/wallet`, `/shop`, `/buy item:<name> qty:<n>`, `/inventory`
-- GM: `/gm_give member:<@user> amount:<n>`, `/gm_additem member:<@user> item:<name> qty:<n>`
+Build:  pip install -r requirements.txt
+Start:  python bot.py
 
-## Deploy on Render (Free)
-1. Create a **Web Service** → **Free** instance, connect this repo.
-2. Build command: `pip install -r requirements.txt`  
-   Start command: `python bot.py`
-3. Environment → add `DISCORD_TOKEN` (your Discord bot token).
-4. Deploy. The tiny Flask server (keep_alive.py) binds to `$PORT` so Render detects it.
-5. Optional: keep it awake with an UptimeRobot HTTP monitor that pings your Render URL every 5 min.
+ENV VARS:
+- DISCORD_TOKEN = <your bot token>
+- DATABASE_URL  = postgres://user:pass@host:port/db?sslmode=require
 
-**Never commit your token**. Rotate in the Discord Developer Portal if it was leaked.
+Commands: /create, /sheet, /skill_add, /roll, /damage, /heal, /wallet, /shop, /buy, /inventory, /gm_give, /gm_additem, /gm_backup, /gm_restore
